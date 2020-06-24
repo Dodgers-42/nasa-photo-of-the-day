@@ -1,19 +1,34 @@
-import React from "react";
+import React, { useEffect } from "react";
 // import axios from "axios";
 import "./NASA.css";
+import axios from "axios";
 
-function NASA() {
+const NASA = () => {
+    const [nasaPhoto, setNasaPhoto] = useState({});
+    useEffect(() => {
+        axios
+            .get(
+                "https://api.nasa.gov/planetary/apod?api_key=lEfomzhjJqJm96qWclfe9yfNtGf4dfeVuTUfb6G2"
+            )
+            .then((response) => {
+                console.log("Response object", response);
+                setNasaPhoto(response.data);
+            })
+            .catch((error) => {
+                console.log("Error object", error);
+            });
+    }, []);
+    console.log("Here", nasaPhoto);
+    
     return (
-      <div className="App">
-        <p>
-          Read through the instructions in the README.md file to build your NASA
-          app! Have fun <span role="img" aria-label='go!'>🚀</span>!
-        </p>
-        <NASA/>
-        
+      <div className="photo">
+        {nasaPhoto.map((photo) => {
+            <NASA key={photo.copyright} photo={photo} />;
+        })}
+         
       </div>
     );
   }
   
 
-export default NASA
+export default NASA;
