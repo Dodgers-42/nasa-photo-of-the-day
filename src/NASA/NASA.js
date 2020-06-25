@@ -7,11 +7,12 @@ const NASA = () => {
     // useEffect(() => {}
         
     return (
-      <div className="photo">
+      <div className="nasa">
         {/* {nasaPhoto.map((photo) => {
             <NASA key={photo.copyright} photo={photo} />;
         })}
           */}
+          {/* <NasaPhoto/> */}
       </div>
     );
   }
