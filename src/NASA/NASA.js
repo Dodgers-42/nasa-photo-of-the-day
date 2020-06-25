@@ -1,21 +1,22 @@
 import React, { useEffect } from "react";
-import "./NASA.css";
-import axios from "axios";
+import NasaPhoto from "./NasaPhoto";
+// import "./Nasa.css";
+// import axios from "./node_modules/axios";
 
-const NASA = () => {
+const Nasa = (props) => {
     // const [nasaPhoto, setNasaPhoto] = useState({});
     // useEffect(() => {}
-        
+        console.log(props.nasaInfo);
     return (
       <div className="nasa">
         {/* {nasaPhoto.map((photo) => {
-            <NASA key={photo.copyright} photo={photo} />;
+            <Nasa key={photo.copyright} photo={photo} />;
         })}
           */}
-          {/* <NasaPhoto/> */}
+          <NasaPhoto nasaPhoto = {props.nasaInfo.url} title = {props.nasaInfo.title}/>
       </div>
     );
   }
   
 
-export default NASA;
+export default Nasa;
